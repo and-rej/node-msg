@@ -52,7 +52,6 @@
   <ItemGroup>
     <TypeScriptCompile Include="Server\Router\Router.ts" />
     <TypeScriptCompile Include="Server\Server.ts" />
-    <TypeScriptCompile Include="typings\browser.d.ts" />
     <TypeScriptCompile Include="typings\main.d.ts" />
     <TypeScriptCompile Include="typings\main\ambient\node\node.d.ts" />
   </ItemGroup>

@@ -1,11 +1,9 @@
-﻿/// <reference path="Router/Router.ts" />
-
-// Module Imports
+﻿// Module Imports
 // External
 import http = require('http');
 
 // Internal
-import * as router from "./Router/router";
+import * as router from "./Router/Router";
 
 // Config
 var port = process.env.PORT || 1337;
