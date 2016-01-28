@@ -1,0 +1,10 @@
+{
+  "name": "NodeMsg",
+  "version": "0.0.0",
+  "description": "NodeMsg",
+  "main": "server.js",
+  "author": {
+    "name": "Andrej",
+    "email": ""
+  }
+}
