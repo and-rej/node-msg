@@ -10,7 +10,7 @@ var fs = require("fs");
 function route(request, response) {
     var pathname = url.parse(request.url).pathname;
     if (pathname === "/") {
-        pathname += "home.html";
+        pathname += "messages.html";
     }
     var uri = "/Views" + pathname;
     var filePath = path.join(process.cwd(), uri);

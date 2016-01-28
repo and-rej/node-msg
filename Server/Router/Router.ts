@@ -12,7 +12,7 @@ import fs = require("fs");
 export function route(request: http.IncomingMessage, response: http.ServerResponse) {
     var pathname = url.parse(request.url).pathname;
     if (pathname === "/") {
-        pathname += "home.html";
+        pathname += "messages.html";
     }
 
     var uri = "/Views" + pathname;
