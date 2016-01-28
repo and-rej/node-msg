@@ -1,13 +1,12 @@
+/// <reference path="Router/Router.ts" />
 // Module Imports
+// External
 var http = require('http');
+// Internal
+var router = require("./Router/router");
 // Config
 var port = process.env.PORT || 1337;
 // Create Server
-http.createServer(handleRequest)
+http.createServer(router.route)
     .listen(port);
-// Handle Requests
-function handleRequest(request, response) {
-    response.writeHead(200, { 'Content-Type': 'text/plain' });
-    response.end('Hello World\n');
-}
 //# sourceMappingURL=Server.js.map
