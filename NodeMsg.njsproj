@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Server\Server.ts" />
+    <TypeScriptCompile Include="Procfile" />
     <TypeScriptCompile Include="typings\browser.d.ts" />
     <TypeScriptCompile Include="typings\browser\ambient\node\node.d.ts" />
     <TypeScriptCompile Include="typings\main.d.ts" />
