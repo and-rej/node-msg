@@ -1,4 +1,4 @@
-var staticFileServer = require("./../../StaticFileServer/StaticFileServer");
+var staticFileServer = require("./../../FileManager/FileManager");
 var MessagesController = (function () {
     function MessagesController() {
     }

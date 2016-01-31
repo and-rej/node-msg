@@ -2,7 +2,7 @@
 import url = require("url");
 import path = require("path");
 
-import * as staticFileServer from "./../../StaticFileServer/StaticFileServer";
+import * as staticFileServer from "./../../FileManager/FileManager";
 
 export class MessagesController {
 

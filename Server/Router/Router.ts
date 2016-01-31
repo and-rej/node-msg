@@ -3,7 +3,7 @@ import url = require("url");
 import path = require("path");
 import fs = require("fs");
 
-import * as staticFileServer from "./../StaticFileServer/StaticFileServer";
+import * as staticFileServer from "./../FileManager/FileManager";
 import * as controllers from "./../Controllers/Messages/MessagesController";
 
 var messagesController = new controllers.MessagesController();

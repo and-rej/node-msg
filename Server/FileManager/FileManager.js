@@ -32,4 +32,4 @@ function serve(pathname, response) {
     });
 }
 exports.serve = serve;
-//# sourceMappingURL=StaticFileServer.js.map
+//# sourceMappingURL=FileManager.js.map

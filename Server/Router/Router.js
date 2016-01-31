@@ -1,5 +1,5 @@
 var url = require("url");
-var staticFileServer = require("./../StaticFileServer/StaticFileServer");
+var staticFileServer = require("./../FileManager/FileManager");
 var controllers = require("./../Controllers/Messages/MessagesController");
 var messagesController = new controllers.MessagesController();
 /**
