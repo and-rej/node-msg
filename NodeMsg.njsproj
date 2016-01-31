@@ -36,11 +36,16 @@
     <Content Include="package.json" />
     <Content Include="Server\Router\Router.js.map" />
     <Content Include="Server\Server.js.map" />
+    <Content Include="Server\StaticFileServer\StaticFileServer.js.map" />
+    <Content Include="Styles\main.css" />
     <Content Include="tsconfig.json" />
     <Content Include="typings.json" />
     <Content Include="Views\messages.html" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Client\" />
+    <Folder Include="Server\StaticFileServer\" />
+    <Folder Include="Styles\" />
     <Folder Include="Server\Router\" />
     <Folder Include="Views\" />
     <Folder Include="Server\" />
@@ -52,12 +57,14 @@
   <ItemGroup>
     <TypeScriptCompile Include="Server\Router\Router.ts" />
     <TypeScriptCompile Include="Server\Server.ts" />
+    <TypeScriptCompile Include="Server\StaticFileServer\StaticFileServer.ts" />
     <TypeScriptCompile Include="typings\main.d.ts" />
     <TypeScriptCompile Include="typings\main\ambient\node\node.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Server\Router\Router.js" />
     <Compile Include="Server\Server.js" />
+    <Compile Include="Server\StaticFileServer\StaticFileServer.js" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

@@ -2,6 +2,7 @@
 import url = require("url");
 import path = require("path");
 import fs = require("fs");
+import * as staticFileServer from "./../StaticFileServer/StaticFileServer";
 
 /**
  * Routes an incoming request message to the appropriate handler.
@@ -11,20 +12,11 @@ import fs = require("fs");
  */
 export function route(request: http.IncomingMessage, response: http.ServerResponse) {
     var pathname = url.parse(request.url).pathname;
+
+    // Default route
     if (pathname === "/") {
         pathname += "messages.html";
     }
 
-    var uri = "/Views" + pathname;
-    var filePath = path.join(process.cwd(), uri);
-    fs.exists(filePath, (exists) => {
-        if (exists) {
-            response.setHeader("content-type", "text/html");
-            var fileStream = fs.createReadStream(filePath);
-            fileStream.pipe(response);
-        } else {
-            response.statusCode = 404;
-            response.end("<h1>Not found</h1>");
-        }
-    });
+    staticFileServer.serve(pathname, response);
 }

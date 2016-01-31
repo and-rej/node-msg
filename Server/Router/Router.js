@@ -1,6 +1,5 @@
 var url = require("url");
-var path = require("path");
-var fs = require("fs");
+var staticFileServer = require("./../StaticFileServer/StaticFileServer");
 /**
  * Routes an incoming request message to the appropriate handler.
  *
@@ -9,22 +8,11 @@ var fs = require("fs");
  */
 function route(request, response) {
     var pathname = url.parse(request.url).pathname;
+    // Default route
     if (pathname === "/") {
         pathname += "messages.html";
     }
-    var uri = "/Views" + pathname;
-    var filePath = path.join(process.cwd(), uri);
-    fs.exists(filePath, function (exists) {
-        if (exists) {
-            response.setHeader("content-type", "text/html");
-            var fileStream = fs.createReadStream(filePath);
-            fileStream.pipe(response);
-        }
-        else {
-            response.statusCode = 404;
-            response.end("<h1>Not found</h1>");
-        }
-    });
+    staticFileServer.serve(pathname, response);
 }
 exports.route = route;
 //# sourceMappingURL=Router.js.map
