@@ -2,7 +2,11 @@
 import url = require("url");
 import path = require("path");
 import fs = require("fs");
+
 import * as staticFileServer from "./../StaticFileServer/StaticFileServer";
+import * as controllers from "./../Controllers/Messages/MessagesController";
+
+var messagesController = new controllers.MessagesController();
 
 /**
  * Routes an incoming request message to the appropriate handler.
@@ -14,8 +18,9 @@ export function route(request: http.IncomingMessage, response: http.ServerRespon
     var pathname = url.parse(request.url).pathname;
 
     // Default route
-    if (pathname === "/") {
-        pathname += "messages.html";
+    if (pathname === "/" || pathname == "messages.html") {
+        messagesController.index(request, response);
+        return;
     }
 
     staticFileServer.serve(pathname, response);
