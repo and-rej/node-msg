@@ -19,6 +19,10 @@ function route(request, response) {
         messagesController.asJson(request, response);
         return;
     }
+    if (pathname == "/messages/create") {
+        messagesController.create(request, response);
+        return;
+    }
     staticFileServer.serve(pathname, response);
 }
 exports.route = route;

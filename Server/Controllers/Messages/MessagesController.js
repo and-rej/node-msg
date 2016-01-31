@@ -1,3 +1,4 @@
+var queryString = require("querystring");
 var staticFileServer = require("./../../FileManager/FileManager");
 var MessagesController = (function () {
     function MessagesController() {
@@ -24,6 +25,21 @@ var MessagesController = (function () {
             { author: "Andrej", text: "Hello, world!" }
         ];
         response.end(JSON.stringify(data));
+    };
+    /**
+     * Creates a new message.
+     *
+     * @param request The incoming request.
+     * @param response The response.
+     */
+    MessagesController.prototype.create = function (request, response) {
+        var body = "";
+        request.on("data", function (data) {
+            body += data;
+        });
+        request.on('end', function () {
+            var post = queryString.parse(body);
+        });
     };
     return MessagesController;
 })();

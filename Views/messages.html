@@ -8,6 +8,13 @@
 <body>
     <h1>Messages</h1>
     <div id="container"></div>
+    <form action="messages/create" method="post">
+        <label>Author</label>
+        <input type="text" name="author" />
+        <label>Text</label>
+        <input type="text" name="text" />
+        <button type="submit">Post</button>
+    </form>
     <script src="../Client/Messages.js"></script>
 </body>
 </html>

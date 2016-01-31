@@ -28,5 +28,10 @@ export function route(request: http.IncomingMessage, response: http.ServerRespon
         return;
     }
 
+    if (pathname == "/messages/create") {
+        messagesController.create(request, response);
+        return;
+    }
+
     staticFileServer.serve(pathname, response);
 }
