@@ -11,8 +11,12 @@ var messagesController = new controllers.MessagesController();
 function route(request, response) {
     var pathname = url.parse(request.url).pathname;
     // Default route
-    if (pathname === "/" || pathname == "messages.html") {
+    if (pathname === "/" || pathname == "/messages" || pathname == "/messages.html") {
         messagesController.index(request, response);
+        return;
+    }
+    if (pathname == "/messages/asJson") {
+        messagesController.asJson(request, response);
         return;
     }
     staticFileServer.serve(pathname, response);
