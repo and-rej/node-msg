@@ -11,6 +11,8 @@
     var messages = [];
     // Set up event handler for adding new messages.
     form.onsubmit = onMessageSubmit;
+    // Focus author input.
+    authorInput.focus();
     // Get initial messages.
     getMessages();
     // Begin auto-refreshing messages.
@@ -35,11 +37,19 @@
     function updateMessages(newMessages) {
         if (newMessages.length > messages.length) {
             messages = newMessages;
-            var html = "";
+            var messageNodes = [];
             newMessages.map(function (message) {
-                html += "\n<div>\n<h2>" + message.author + "</h2>\n<p>" + message.text + "</p>\n</div>";
+                var node = document.createElement("p");
+                node.innerHTML = "<strong>" + message.author + ":</strong> " + message.text;
+                messageNodes.push(node);
             });
-            container.innerHTML = html;
+            while (container.lastChild) {
+                container.removeChild(container.lastChild);
+            }
+            for (var i = 0; i < messageNodes.length; i++) {
+                container.appendChild(messageNodes[i]);
+            }
+            messageNodes[messageNodes.length - 1].scrollIntoView();
         }
     }
     /**
@@ -57,6 +67,8 @@
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "messages/create");
             xhr.send(JSON.stringify(newMessage));
+            textInput.value = "";
+            textInput.focus();
         }
     }
 })();

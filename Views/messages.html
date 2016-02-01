@@ -4,11 +4,15 @@
 <head>
     <meta charset="utf-8" />
     <title>Messages</title>
+    <link href="../Styles/main.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>Messages</h1>
-    <div id="container"></div>
-    <form action="messages/create" method="post">
+    <h1 class="row">Messages</h1>
+    <div class="messages row scroll-y">
+        <div id="container">
+        </div>
+    </div>
+    <form action="messages/create" method="post" class="row">
         <label for="author">Author</label>
         <input type="text" name="author" />
         <label for="text">Text</label>
