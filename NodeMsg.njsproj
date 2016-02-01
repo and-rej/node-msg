@@ -36,6 +36,7 @@
     <Content Include="Client\Messages.js.map" />
     <Content Include="package.json" />
     <Content Include="Server\Controllers\Messages\MessagesController.js.map" />
+    <Content Include="Server\Model\Message.js.map" />
     <Content Include="Server\Router\Router.js.map" />
     <Content Include="Server\Server.js.map" />
     <Content Include="Server\FileManager\FileManager.js.map" />
@@ -49,6 +50,7 @@
     <Folder Include="Server\Controllers\" />
     <Folder Include="Server\Controllers\Messages\" />
     <Folder Include="Server\FileManager\" />
+    <Folder Include="Server\Model\" />
     <Folder Include="Styles\" />
     <Folder Include="Server\Router\" />
     <Folder Include="Views\" />
@@ -61,6 +63,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Client\Messages.ts" />
     <TypeScriptCompile Include="Server\Controllers\Messages\MessagesController.ts" />
+    <TypeScriptCompile Include="Server\Model\Message.ts" />
     <TypeScriptCompile Include="Server\Router\Router.ts" />
     <TypeScriptCompile Include="Server\Server.ts" />
     <TypeScriptCompile Include="Server\FileManager\FileManager.ts" />
@@ -68,8 +71,11 @@
     <TypeScriptCompile Include="typings\main\ambient\node\node.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client\Messages.js" />
+    <Content Include="Client\Messages.js">
+      <Publish>False</Publish>
+    </Content>
     <Compile Include="Server\Controllers\Messages\MessagesController.js" />
+    <Compile Include="Server\Model\Message.js" />
     <Compile Include="Server\Router\Router.js" />
     <Compile Include="Server\Server.js" />
     <Compile Include="Server\FileManager\FileManager.js" />
