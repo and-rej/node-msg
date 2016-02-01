@@ -8,6 +8,8 @@ import * as staticFileServer from "./../../FileManager/FileManager";
 
 export class MessagesController {
 
+    private messages: Array<any> = [];
+
     /**
      * Gets a view of all current messages in the system.
      *
@@ -25,14 +27,7 @@ export class MessagesController {
      * @param response The response.
      */
     asJson(request: http.IncomingMessage, response: http.ServerResponse) {
-
-        var data = [
-            { author: "Jim", text: "Hi there!" },
-            { author: "Fred", text: "A message." },
-            { author: "Andrej", text: "Hello, world!" }
-        ];
-
-        response.end(JSON.stringify(data));
+        response.end(JSON.stringify(this.messages));
     }
 
     /**
@@ -43,13 +38,16 @@ export class MessagesController {
      */
     create(request: http.IncomingMessage, response: http.ServerResponse) {
         var body = "";
+        var m = this.messages;
 
         request.on("data", function (data) {
             body += data;
         });
 
         request.on('end', function () {
-            var post = queryString.parse(body);
+            var post = JSON.parse(body);
+            m.push(post);
+            response.end();
         });
     }
 }

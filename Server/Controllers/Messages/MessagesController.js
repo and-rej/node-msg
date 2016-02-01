@@ -1,7 +1,7 @@
-var queryString = require("querystring");
 var staticFileServer = require("./../../FileManager/FileManager");
 var MessagesController = (function () {
     function MessagesController() {
+        this.messages = [];
     }
     /**
      * Gets a view of all current messages in the system.
@@ -19,12 +19,7 @@ var MessagesController = (function () {
      * @param response The response.
      */
     MessagesController.prototype.asJson = function (request, response) {
-        var data = [
-            { author: "Jim", text: "Hi there!" },
-            { author: "Fred", text: "A message." },
-            { author: "Andrej", text: "Hello, world!" }
-        ];
-        response.end(JSON.stringify(data));
+        response.end(JSON.stringify(this.messages));
     };
     /**
      * Creates a new message.
@@ -34,11 +29,14 @@ var MessagesController = (function () {
      */
     MessagesController.prototype.create = function (request, response) {
         var body = "";
+        var m = this.messages;
         request.on("data", function (data) {
             body += data;
         });
         request.on('end', function () {
-            var post = queryString.parse(body);
+            var post = JSON.parse(body);
+            m.push(post);
+            response.end();
         });
     };
     return MessagesController;
